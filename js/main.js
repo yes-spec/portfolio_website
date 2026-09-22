@@ -12,24 +12,6 @@
    *    Single source of truth used by the homepage (featured picks) and
    *    the full Tours & Destinations page (filterable catalogue).
    * ------------------------------------------------------------------- */
-  const ICONS = {
-    safari: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c1.5 2 1.5 4-1 5M12 3c-1.5 2-1.5 4 1 5" stroke-linecap="round"/><circle cx="12" cy="13" r="7"/><path d="M8.5 11c.5-1 1-1.4 1.4-1.4M15.5 11c-.5-1-1-1.4-1.4-1.4M9.5 16c.9.6 1.7.9 2.5.9s1.6-.3 2.5-.9" stroke-linecap="round"/></svg>',
-    beach: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17c1.5 1 3 1 4.5 0s3-1 4.5 0 3 1 4.5 0 3-1 4.5 0" stroke-linecap="round"/><path d="M3 12c1.5 1 3 1 4.5 0s3-1 4.5 0 3 1 4.5 0 3-1 4.5 0" stroke-linecap="round" opacity=".6"/><circle cx="17" cy="6" r="2.4"/></svg>',
-    mountain: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M3 18 9 7l3.5 5.5L15 9l6 9H3Z"/><path d="M10.5 18 13 14l1.4 1.8"/></svg>',
-    desert: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c2-3 4-3 6-1s4 2 6 0 4-2 6 0"/><path d="M12 4v6M9 7l3 3 3-3"/></svg>',
-    water: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 5 7 5 10a5 5 0 0 1-10 0c0-3 2-6 5-10Z"/></svg>',
-    landmark: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16M5 21V10M9 21V10M15 21V10M19 21V10M3 10l9-6 9 6"/></svg>'
-  };
-
-  const CATEGORY_META = {
-    "Safari": { icon: "safari" },
-    "Beach & Islands": { icon: "beach" },
-    "Mountains & Trekking": { icon: "mountain" },
-    "Desert & Culture": { icon: "desert" },
-    "Waterfalls & Adventure": { icon: "water" },
-    "Culture & City": { icon: "landmark" }
-  };
-
   const TOURS = [
     {
       id: "maasai-mara",
@@ -37,6 +19,7 @@
       country: "Kenya",
       category: "Safari",
       gradient: "g-savanna",
+      image: "images/destinations/maasai-mara.svg",
       duration: "6 Days / 5 Nights",
       groupSize: "2–12 guests",
       price: 1850,
@@ -51,6 +34,7 @@
       country: "Tanzania",
       category: "Safari",
       gradient: "g-sunset",
+      image: "images/destinations/serengeti-ngorongoro.svg",
       duration: "8 Days / 7 Nights",
       groupSize: "2–10 guests",
       price: 2450,
@@ -65,6 +49,7 @@
       country: "Zambia & Zimbabwe",
       category: "Waterfalls & Adventure",
       gradient: "g-ocean",
+      image: "images/destinations/victoria-falls.svg",
       duration: "5 Days / 4 Nights",
       groupSize: "2–14 guests",
       price: 1600,
@@ -78,6 +63,7 @@
       country: "Morocco",
       category: "Desert & Culture",
       gradient: "g-dune",
+      image: "images/destinations/sahara-morocco.svg",
       duration: "7 Days / 6 Nights",
       groupSize: "2–16 guests",
       price: 1750,
@@ -91,6 +77,7 @@
       country: "Tanzania",
       category: "Beach & Islands",
       gradient: "g-ocean",
+      image: "images/destinations/zanzibar.svg",
       duration: "6 Days / 5 Nights",
       groupSize: "2–10 guests",
       price: 1450,
@@ -105,6 +92,7 @@
       country: "South Africa",
       category: "Culture & City",
       gradient: "g-forest",
+      image: "images/destinations/cape-town.svg",
       duration: "6 Days / 5 Nights",
       groupSize: "2–12 guests",
       price: 1950,
@@ -119,6 +107,7 @@
       country: "Botswana",
       category: "Safari",
       gradient: "g-savanna",
+      image: "images/destinations/okavango-delta.svg",
       duration: "7 Days / 6 Nights",
       groupSize: "2–8 guests",
       price: 2850,
@@ -132,6 +121,7 @@
       country: "Egypt",
       category: "Desert & Culture",
       gradient: "g-dune",
+      image: "images/destinations/egypt-pyramids.svg",
       duration: "8 Days / 7 Nights",
       groupSize: "2–16 guests",
       price: 2100,
@@ -145,6 +135,7 @@
       country: "South Africa",
       category: "Safari",
       gradient: "g-savanna",
+      image: "images/destinations/kruger.svg",
       duration: "5 Days / 4 Nights",
       groupSize: "2–12 guests",
       price: 1700,
@@ -158,6 +149,7 @@
       country: "Rwanda",
       category: "Mountains & Trekking",
       gradient: "g-forest",
+      image: "images/destinations/rwanda-gorillas.svg",
       duration: "4 Days / 3 Nights",
       groupSize: "2–6 guests",
       price: 3200,
@@ -171,6 +163,7 @@
       country: "Seychelles",
       category: "Beach & Islands",
       gradient: "g-ocean",
+      image: "images/destinations/seychelles.svg",
       duration: "7 Days / 6 Nights",
       groupSize: "2–8 guests",
       price: 2650,
@@ -184,6 +177,7 @@
       country: "Morocco",
       category: "Desert & Culture",
       gradient: "g-dune",
+      image: "images/destinations/marrakech.svg",
       duration: "6 Days / 5 Nights",
       groupSize: "2–16 guests",
       price: 1550,
@@ -200,20 +194,15 @@
   const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
   const fmtPrice = (n) => "$" + n.toLocaleString("en-US");
 
-  function metaIcon(category) {
-    const meta = CATEGORY_META[category] || { icon: "landmark" };
-    return ICONS[meta.icon];
-  }
-
   function tourCardHTML(tour) {
     return `
       <article class="tour-card reveal" data-id="${tour.id}" data-category="${tour.category}" data-name="${tour.name.toLowerCase()} ${tour.country.toLowerCase()}">
         <div class="tour-media ${tour.gradient}">
+          <img class="tour-media-img" src="${tour.image}" alt="${tour.name}, ${tour.country}" loading="lazy" width="400" height="300">
           <div class="tour-media-top">
             <span class="tag-pill">${tour.category}</span>
             <span class="price-pill">From ${fmtPrice(tour.price)}</span>
           </div>
-          ${metaIcon(tour.category)}
         </div>
         <div class="tour-body">
           <div class="tour-country">${tour.country}</div>
@@ -345,6 +334,9 @@
 
     function renderDetail(t) {
       detailPane.innerHTML = `
+        <div class="tour-media detail-media ${t.gradient}">
+          <img src="${t.image}" alt="${t.name}, ${t.country}" width="400" height="300">
+        </div>
         <div class="kicker">${t.country} · ${t.category}</div>
         <p style="font-size:1.02rem;color:var(--color-ink);margin-bottom:6px;">${t.description}</p>
         <div class="tour-meta" style="margin:16px 0;">

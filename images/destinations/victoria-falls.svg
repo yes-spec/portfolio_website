@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-labelledby="t">
+<title id="t">Water cascading over the cliffs of Victoria Falls with rising mist</title>
+<defs>
+  <linearGradient id="sky3" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#8FD0CE"/>
+    <stop offset="100%" stop-color="#1F4E4A"/>
+  </linearGradient>
+  <linearGradient id="rock" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#4A3A2A"/>
+    <stop offset="100%" stop-color="#2A2018"/>
+  </linearGradient>
+  <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#F5FBFB"/>
+    <stop offset="100%" stop-color="#BFE6E4"/>
+  </linearGradient>
+</defs>
+<rect width="400" height="300" fill="url(#sky3)"/>
+<path d="M120 40 Q90 140 130 300 H0 V60 Q60 30 120 40 Z" fill="url(#rock)"/>
+<path d="M300 30 Q330 150 285 300 H400 V50 Q350 20 300 30 Z" fill="url(#rock)"/>
+<g fill="url(#water)">
+  <path d="M150 50 q6 90 -4 160 q10 6 6 30 q10 -10 8 -34 q8 8 4 -20 q8 4 2 -24 q8 2 0 -22 q6 -30 -16 -90 Z" opacity="0.95"/>
+  <path d="M195 45 q4 100 -6 175 q10 4 4 34 q10 -8 8 -38 q8 6 2 -22 q8 4 -2 -26 q6 -32 -6 -123 Z" opacity="0.9"/>
+  <path d="M240 55 q6 90 -6 160 q10 6 4 30 q10 -10 6 -34 q8 6 2 -22 q8 2 -2 -24 q6 -28 -4 -110 Z" opacity="0.85"/>
+</g>
+<ellipse cx="210" cy="255" rx="150" ry="28" fill="#EAF7F6" opacity="0.55"/>
+<ellipse cx="210" cy="270" rx="180" ry="20" fill="#F4FBFA" opacity="0.35"/>
+<path d="M110 90 q100 -50 190 5" fill="none" stroke="#F1B37B" stroke-width="5" opacity="0.5" stroke-linecap="round"/>
+</svg>

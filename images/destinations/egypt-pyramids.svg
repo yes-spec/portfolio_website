@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-labelledby="t">
+<title id="t">The Pyramids of Giza rising above the desert with the Nile beyond</title>
+<defs>
+  <linearGradient id="sky8" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#F7D9A0"/>
+    <stop offset="100%" stop-color="#E27B3E"/>
+  </linearGradient>
+  <linearGradient id="sand8" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#E7C27A"/>
+    <stop offset="100%" stop-color="#B7472A"/>
+  </linearGradient>
+</defs>
+<rect width="400" height="300" fill="url(#sky8)"/>
+<circle cx="330" cy="70" r="34" fill="#FFF3D6" opacity="0.9"/>
+<path d="M0 210 Q120 190 200 208 T400 200 V300 H0 Z" fill="url(#sand8)"/>
+<path d="M100 210 L165 100 L230 210 Z" fill="#8F5A2E"/>
+<path d="M165 100 L230 210 L200 210 Z" fill="#6E4322"/>
+<path d="M215 210 L268 130 L320 210 Z" fill="#A8703E"/>
+<path d="M268 130 L320 210 L296 210 Z" fill="#7A4E28"/>
+<g fill="#2B160C" opacity="0.85">
+  <path d="M60 260 q8 -34 20 -34 q3 -8 10 0 q10 4 4 12 q10 4 -2 12 q6 8 -8 8 q-4 6 -10 0 q-10 4 -18 -2 Z"/>
+  <path d="M68 238 l-8 -18 M80 228 l-4 -20 M92 232 l2 -20" stroke="#2B160C" stroke-width="2.4" fill="none"/>
+</g>
+<path d="M0 268 Q100 254 200 266 T400 260 V300 H0 Z" fill="#1F4E4A" opacity="0.55"/>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-labelledby="t">
+<title id="t">A traditional dhow sailing the turquoise waters off Zanzibar</title>
+<defs>
+  <linearGradient id="sky5" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#FDEBC4"/>
+    <stop offset="100%" stop-color="#F2965C"/>
+  </linearGradient>
+  <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#4FA8A0"/>
+    <stop offset="100%" stop-color="#1F4E4A"/>
+  </linearGradient>
+</defs>
+<rect width="400" height="300" fill="url(#sky5)"/>
+<circle cx="315" cy="80" r="30" fill="#FFF3D6" opacity="0.85"/>
+<rect y="150" width="400" height="150" fill="url(#sea)"/>
+<path d="M0 150 Q50 142 100 150 T200 150 T300 150 T400 150" fill="none" stroke="#EFCB8E" stroke-width="3" opacity="0.7"/>
+<g fill="#1B342F" opacity="0.4">
+  <path d="M0 190 Q60 178 120 192 T240 188 T360 194 T400 190 V300 H0 Z"/>
+</g>
+<g transform="translate(150,120)">
+  <path d="M0 90 L0 10 Q30 30 46 88 Z" fill="#F7F1E1"/>
+  <path d="M0 90 L0 30 Q-16 46 -22 88 Z" fill="#E7DCC0"/>
+  <rect x="-4" y="6" width="4" height="86" fill="#2B160C"/>
+  <path d="M-30 90 Q0 104 48 90 L40 100 Q0 112 -22 100 Z" fill="#3A2416"/>
+</g>
+<g fill="#12211E" opacity="0.75">
+  <path d="M40 240 q10 -30 24 -30 q4 -6 10 0 q10 4 4 12 q10 4 -2 10 q4 8 -8 8 q-4 6 -10 0 q-10 4 -18 0 Z"/>
+  <path d="M46 224 l-8 -14 M58 214 l-4 -16 M70 218 l2 -16" stroke="#12211E" stroke-width="2.4" fill="none"/>
+</g>
+</svg>

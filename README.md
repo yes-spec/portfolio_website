@@ -62,7 +62,10 @@ call to one of:
 - Update the email addresses, phone number, and office address in
   `contact.html` and the footer of every page once real ones are ready.
 - Replace the placeholder social links (`#`) with real profile URLs.
-- Imagery is currently rendered with CSS gradients + inline SVG icons
-  (no external image dependencies). Swap the `.tour-media` gradients for
-  real photography by adding `background-image` per destination once you
-  have licensed images.
+- Each destination has an original, hand-drawn SVG illustration at
+  `images/destinations/<slug>.svg` (referenced via the `image` field in
+  the `TOURS` array in `js/main.js`) — no external image dependencies or
+  hotlinked stock photography. To switch to real photography once you
+  have licensed images, add a `.jpg`/`.webp` to `images/destinations/`
+  and update that tour's `image` path; the existing `.tour-media-img`
+  styling (object-fit: cover, hover zoom) works unchanged with photos.

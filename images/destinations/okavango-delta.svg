@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-labelledby="t">
+<title id="t">A mokoro canoe gliding through the reed-lined channels of the Okavango Delta</title>
+<defs>
+  <linearGradient id="sky7" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#FCE6B8"/>
+    <stop offset="100%" stop-color="#D9A441"/>
+  </linearGradient>
+  <linearGradient id="water7" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#4C8C8A"/>
+    <stop offset="100%" stop-color="#1F4E4A"/>
+  </linearGradient>
+</defs>
+<rect width="400" height="300" fill="url(#sky7)"/>
+<circle cx="330" cy="60" r="28" fill="#FFF6E0" opacity="0.85"/>
+<rect y="150" width="400" height="150" fill="url(#water7)"/>
+<path d="M0 150 Q60 140 120 152 T240 148 T360 154 T400 150" fill="none" stroke="#BFE0DC" stroke-width="3" opacity="0.6"/>
+<g stroke="#2C4A2E" stroke-width="3" stroke-linecap="round" opacity="0.85">
+  <path d="M20 220 Q16 180 24 150"/><path d="M32 224 Q30 186 40 155"/><path d="M44 220 Q40 184 50 152"/>
+  <path d="M360 226 Q356 190 366 158"/><path d="M374 222 Q372 186 382 156"/>
+  <path d="M4 226 Q0 192 8 160"/>
+</g>
+<g transform="translate(150,200)">
+  <path d="M0 20 Q60 34 130 18 L120 28 Q60 42 8 30 Z" fill="#3A2416"/>
+  <path d="M40 18 L46 -18" stroke="#20130A" stroke-width="3"/>
+  <ellipse cx="46" cy="-22" rx="10" ry="3" fill="#1A0F08"/>
+  <circle cx="70" cy="10" r="6" fill="#20130A"/>
+</g>
+<g fill="#12211E" opacity="0.7">
+  <path d="M310 190 q-14 -4 -14 4 q-8 -2 -6 6 q10 2 12 -2 q4 4 10 0 Z"/>
+</g>
+</svg>
