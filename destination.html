@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tours &amp; Destinations — Safiri Horizons</title>
-<meta name="description" content="Browse and book handcrafted tours across Africa — safaris, beaches, deserts, mountains and more — with Safiri Horizons.">
+<title>Destination — Safiri Horizons</title>
+<meta name="description" content="Explore a bespoke African journey with Safiri Horizons — full itinerary, inclusions, and booking.">
 <meta name="theme-color" content="#B7472A">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23B7472A'/%3E%3Ccircle cx='50' cy='50' r='24' fill='%23F1DBA5'/%3E%3C/svg%3E">
+<link rel="canonical" href="https://www.safirihorizons.com/destination.html">
 <link rel="manifest" href="manifest.json">
-<link rel="canonical" href="https://www.safirihorizons.com/tours.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23B7472A'/%3E%3Ccircle cx='50' cy='50' r='24' fill='%23F1DBA5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<meta property="og:title" content="Tours & Destinations — Safiri Horizons">
-<meta property="og:description" content="Browse and book handcrafted tours across Africa — safaris, beaches, deserts, mountains and more.">
+<meta property="og:title" content="A Bespoke African Journey — Safiri Horizons">
+<meta property="og:description" content="Full itinerary, inclusions, and booking for a handcrafted African tour.">
 <meta property="og:type" content="website">
 </head>
 <body>
@@ -56,69 +56,95 @@
 
 <main id="main-content">
 
-  <section class="page-hero">
-    <div class="container">
-      <div class="breadcrumb">Home / Tours &amp; Destinations</div>
-      <h1>Tours &amp; Destinations Across Africa</h1>
-      <p>Twelve signature journeys spanning savanna, coast, desert and mountain — every one bookable in minutes, wherever you're travelling from.</p>
+  <noscript>
+    <div class="container" style="padding:60px 24px;text-align:center;">
+      <p>This destination page needs JavaScript enabled to load its content. Please <a href="tours.html" style="color:var(--color-primary);font-weight:600;">browse all destinations here</a> instead.</p>
     </div>
-  </section>
+  </noscript>
 
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-head">
-        <span class="kicker">Explore by Map</span>
-        <h2>Where in Africa do you want to go?</h2>
-        <p>Click a pin to jump straight to that journey's full itinerary and booking page.</p>
+  <div id="dest-not-found" style="display:none;">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Destination Not Found</h1>
+        <p>We couldn't find that journey. It may have moved — browse the full collection instead.</p>
       </div>
-      <div class="africa-map-wrap">
-        <svg id="africa-map" class="africa-map" viewBox="0 0 420 440" role="img" aria-label="Stylised map of Africa with pins marking each Safiri Horizons destination">
-          <path class="landmass" d="M150.0,25.0 C170.0,18.3 223.3,10.8 250.0,15.0 C276.7,19.2 295.8,35.8 310.0,50.0 C324.2,64.2 328.0,83.3 335.0,100.0 C342.0,116.7 353.7,132.5 352.0,150.0 C350.3,167.5 327.8,186.7 325.0,205.0 C322.2,223.3 337.5,240.8 335.0,260.0 C332.5,279.2 322.5,300.0 310.0,320.0 C297.5,340.0 279.2,362.0 260.0,380.0 C240.8,398.0 215.0,425.5 195.0,428.0 C175.0,430.5 155.0,411.3 140.0,395.0 C125.0,378.7 113.3,354.2 105.0,330.0 C96.7,305.8 90.0,276.7 90.0,250.0 C90.0,223.3 104.2,193.3 105.0,170.0 C105.8,146.7 90.8,129.2 95.0,110.0 C99.2,90.8 120.8,69.2 130.0,55.0 C139.2,40.8 130.0,31.7 150.0,25.0 Z"/>
-          <!-- Destination pins injected by js/main.js (initMap) -->
-        </svg>
+    </section>
+    <section class="section">
+      <div class="container" style="text-align:center;">
+        <a href="tours.html" class="btn btn-primary">View All Destinations</a>
       </div>
-      <p class="map-caption">Illustrative map, not to scale — for navigation and inspiration only.</p>
-    </div>
-  </section>
+    </section>
+  </div>
 
-  <section class="section">
-    <div class="container">
+  <div id="dest-content" style="display:none;">
 
-      <div class="search-row">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3" stroke-linecap="round"/></svg>
-        <input type="search" id="tour-search" placeholder="Search by destination or country…" aria-label="Search destinations">
-      </div>
-
-      <div class="filter-bar" id="filter-bar">
-        <button type="button" class="filter-btn active" data-category="All">All Journeys</button>
-        <button type="button" class="filter-btn" data-category="Safari">Safari</button>
-        <button type="button" class="filter-btn" data-category="Beach & Islands">Beach &amp; Islands</button>
-        <button type="button" class="filter-btn" data-category="Mountains & Trekking">Mountains &amp; Trekking</button>
-        <button type="button" class="filter-btn" data-category="Desert & Culture">Desert &amp; Culture</button>
-        <button type="button" class="filter-btn" data-category="Waterfalls & Adventure">Waterfalls &amp; Adventure</button>
-        <button type="button" class="filter-btn" data-category="Culture & City">Culture &amp; City</button>
-      </div>
-
-      <div class="grid grid-3" id="tour-grid"><!-- injected by main.js --></div>
-      <div class="empty-state" id="empty-state">
-        <h3>No journeys match your search</h3>
-        <p>Try a different destination name, or reset the filters above.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section section-alt">
-    <div class="container">
-      <div class="cta-banner reveal">
-        <div>
-          <h2>Can't find exactly what you're after?</h2>
-          <p>Every itinerary here is a starting point. Tell us your dream trip and we'll tailor the route, pace, and lodges to match — completely free.</p>
+    <section class="dest-hero" id="dest-hero">
+      <img id="dest-hero-img" src="" alt="">
+      <div class="container dest-hero-content">
+        <div class="breadcrumb"><a href="tours.html" style="color:inherit;">Tours &amp; Destinations</a> / <span id="dest-country-cat"></span></div>
+        <h1 id="dest-title"></h1>
+        <p id="dest-tagline" style="color:rgba(255,255,255,0.92);max-width:56ch;margin-bottom:14px;"></p>
+        <div class="dest-hero-meta">
+          <span>📅 <span id="dest-meta-duration"></span></span>
+          <span>👥 <span id="dest-meta-group"></span></span>
+          <span>☀️ Best: <span id="dest-meta-best"></span></span>
         </div>
-        <button type="button" class="btn btn-accent js-book-now-generic">Request a Custom Itinerary</button>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="dest-layout">
+          <div>
+            <h2 style="font-size:1.6rem;">Overview</h2>
+            <p id="dest-description" style="font-size:1.05rem;color:var(--color-ink);"></p>
+
+            <h3 style="font-size:1.15rem;margin-top:28px;">Trip Highlights</h3>
+            <ul class="detail-highlights" id="dest-highlights"></ul>
+
+            <h3 style="font-size:1.15rem;margin-top:10px;">Your Itinerary</h3>
+            <div class="timeline" id="dest-itinerary"></div>
+
+            <h3 style="font-size:1.15rem;">What's Included</h3>
+            <div class="inex-grid">
+              <div class="inex-col includes">
+                <h4>Included</h4>
+                <ul id="dest-includes"></ul>
+              </div>
+              <div class="inex-col excludes">
+                <h4>Not Included</h4>
+                <ul id="dest-excludes"></ul>
+              </div>
+            </div>
+          </div>
+
+          <aside class="dest-sidebar">
+            <div class="price-line" id="dest-price"></div>
+            <div class="price-note" id="dest-price-note"></div>
+            <dl>
+              <dt>Duration</dt><dd id="dest-sidebar-duration"></dd>
+              <dt>Group size</dt><dd id="dest-sidebar-group"></dd>
+              <dt>Best time</dt><dd id="dest-sidebar-best"></dd>
+              <dt>Country</dt><dd id="dest-sidebar-country"></dd>
+            </dl>
+            <button type="button" class="btn btn-primary btn-block js-book-tour" id="dest-book-btn">Book This Journey</button>
+            <a href="#" id="dest-whatsapp-btn" target="_blank" rel="noopener" class="btn btn-outline btn-block" style="margin-top:10px;">Ask on WhatsApp</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt related-tours">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">You Might Also Like</span>
+          <h2>More journeys in this style</h2>
+        </div>
+        <div class="grid grid-3" id="related-grid"></div>
+      </div>
+    </section>
+
+  </div>
 
 </main>
 
@@ -143,8 +169,6 @@
         <h4>Explore</h4>
         <ul>
           <li><a href="tours.html">All Destinations</a></li>
-          <li><a href="tours.html#tour-grid">Safaris</a></li>
-          <li><a href="tours.html#tour-grid">Beach &amp; Islands</a></li>
           <li><a href="blog.html">Travel Journal</a></li>
           <li><a href="about.html">About Us</a></li>
         </ul>
@@ -155,7 +179,6 @@
           <li><a href="about.html">Our Story</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="contact.html#faq">FAQs</a></li>
-          <li><a href="contact.html">Travel Advisories</a></li>
         </ul>
       </div>
       <div>
@@ -185,7 +208,7 @@
 
 <div class="toast" id="toast"></div>
 
-<!-- ===================== BOOKING / DETAIL MODAL ===================== -->
+<!-- ===================== BOOKING MODAL ===================== -->
 <div class="modal-overlay" id="booking-modal">
   <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title-text">
     <button type="button" class="modal-close js-close-modal" aria-label="Close">✕</button>
@@ -269,5 +292,6 @@
 
 <script src="js/data.js"></script>
 <script src="js/main.js"></script>
+<script src="js/destination.js"></script>
 </body>
 </html>

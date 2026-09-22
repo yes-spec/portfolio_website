@@ -1,0 +1,14 @@
+{
+  "name": "Safiri Horizons — Tours & Hospitality",
+  "short_name": "Safiri Horizons",
+  "description": "Bespoke African safaris, beach escapes, and cultural journeys for travellers worldwide.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FBF7F0",
+  "theme_color": "#B7472A",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "images/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

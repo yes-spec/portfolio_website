@@ -1,31 +1,77 @@
 # Safiri Horizons — Tours & Hospitality
 
 A professional, fully static website for a tours & hospitality business
-sourcing clients globally, showcasing bookable destinations across Africa.
+sourcing clients globally, showcasing bookable destinations across Africa —
+with a full booking flow, a destination-by-destination journal, an
+interactive map, dark mode, multi-currency pricing, PWA support, and more.
 
 ## Structure
 
 ```
-index.html      Homepage — hero, featured journeys, trust signals, testimonials
-tours.html      Full destinations catalogue — searchable, filterable by category
-about.html      Company story, values, team
-contact.html    Contact form, contact details, FAQ
-css/style.css   All styling (design tokens, layout, responsive rules)
-js/main.js      Destination data, rendering, filters, booking modal, forms
+index.html          Homepage — hero, featured journeys, trust signals, testimonials
+tours.html           Full catalogue — searchable, filterable, interactive Africa map
+destination.html     Dynamic destination detail page (?slug=<id>) — itinerary, pricing, booking
+about.html            Company story, values, team
+blog.html             Travel journal listing
+article.html          Dynamic article page (?slug=<id>)
+contact.html          Contact form, contact details, FAQ, WhatsApp link
+
+css/style.css         All styling — design tokens, dark theme, layout, responsive, motion
+js/data.js            Single source of truth: all tour + article content (window.SH)
+js/main.js            Shared site behaviour: nav, modal, currency, theme, map, forms
+js/destination.js      Renders destination.html from js/data.js
+js/blog.js             Renders blog.html / article.html from js/data.js
+
+images/destinations/*.svg   Original hand-drawn illustration per destination
+images/icon.svg              App icon (used by manifest.json)
+manifest.json, sw.js         PWA manifest + service worker (installable, works offline)
+sitemap.xml, robots.txt      SEO files (update the domain before launch — see below)
 ```
 
 No build step or framework is required — open `index.html` directly, or serve
 the folder with any static file server (e.g. `python3 -m http.server`).
 
-## Destinations included
+## Destinations & content
 
 12 African journeys spanning Safari, Beach & Islands, Mountains & Trekking,
 Desert & Culture, Waterfalls & Adventure, and Culture & City across Kenya,
 Tanzania, Zambia/Zimbabwe, Morocco, South Africa, Botswana, Egypt, Rwanda and
-Seychelles. All destination content lives in the `TOURS` array at the top of
-`js/main.js` — add, edit, or remove entries there and every page (featured
-picks, full catalogue, filters, booking dropdown, detail modal) updates
-automatically.
+Seychelles, plus 4 travel-journal articles. All content lives in the `TOURS`
+and `BLOG` arrays in `js/data.js` — add, edit, or remove entries there and
+every page (featured picks, catalogue, filters, map pins, booking dropdown,
+destination pages, related-articles, sitemap generation) stays in sync.
+
+Each tour record includes a day-by-day `itinerary`, `includes`/`excludes`
+lists, a `bestTime` and a `mapPin` position — all rendered automatically on
+its `destination.html?slug=<id>` page.
+
+## Feature tour
+
+- **Booking modal** — client-side validated, generates a reference number,
+  emails the request via `mailto:`, with a focus-trapped accessible dialog.
+- **Multi-currency pricing** — USD/EUR/GBP/KES toggle in the header
+  (`js/main.js`, `CURRENCY` object) with static illustrative rates; choice
+  persists in `localStorage`. Update the `rates` object with live figures
+  before launch, or wire it to a currency API.
+- **Dark mode** — explicit toggle persists in `localStorage`; otherwise
+  follows the visitor's OS `prefers-color-scheme` automatically.
+- **WhatsApp click-to-chat** — floating button on every page plus a link on
+  the contact page, using `wa.me` with a pre-filled message. Update the
+  phone number (`254700123456`) to the real one before launch.
+- **Interactive Africa map** (`tours.html`) — inline SVG with a pin per
+  destination (positions in `TOURS[].mapPin`), each linking straight to
+  that destination's page. Explicitly labelled "illustrative, not to
+  scale" — it's a stylised silhouette, not a surveyed map.
+- **Destination pages** — full itinerary timeline, inclusions/exclusions,
+  related journeys, and per-page SEO meta + `TouristTrip` JSON-LD, all
+  rendered client-side from `js/data.js` (see SEO note below).
+- **Travel journal** — 4 original articles with per-page SEO meta +
+  `Article` JSON-LD, cross-linked to the relevant destination page.
+- **PWA** — `manifest.json` + `sw.js` make the site installable and give it
+  basic offline support (network-first for pages, cache-first for assets).
+- **Accessibility** — skip-to-content link, visible focus states, a
+  focus-trapped/Escape-closable booking modal, `prefers-reduced-motion`
+  support, and labelled interactive controls throughout.
 
 ## How booking works today
 
@@ -41,31 +87,40 @@ Since this is a static site with no backend, the booking form:
 This works globally with no server, but relies on the visitor having a
 configured email client. The contact page form works the same way.
 
-## Wiring up a real backend (recommended before launch)
+## Before you launch
 
-To collect bookings directly (no email client required) and store/notify
-on every submission, replace the `mailto:` logic in the `submit` handlers
-inside `js/main.js` (`initModal()` and `initSimpleForms()`) with a `fetch()`
-call to one of:
-
-- **Formspree** (formspree.io) — drop-in form endpoint, no server code.
-- **EmailJS** (emailjs.com) — sends email directly from the browser.
-- **Netlify Forms** — if hosting on Netlify, add `data-netlify="true"` to
-  the `<form>` tags and Netlify handles submissions automatically.
-- A custom API (Node/Express, etc.) if you want full control and a
-  booking database.
+- **Wire a real form backend.** Replace the `mailto:` logic in the `submit`
+  handlers in `js/main.js` (`initModal()`, `initSimpleForms()`) with a
+  `fetch()` call to Formspree, EmailJS, Netlify Forms, or your own API.
+- **Set the real domain.** `js/destination.js`, `js/blog.js`, every page's
+  `<link rel="canonical">`, `sitemap.xml`, and `robots.txt` currently use
+  the placeholder `https://www.safirihorizons.com` (matching the fictional
+  brand's existing email addresses). Swap it for the live domain everywhere
+  — a quick way is `grep -rl safirihorizons.com .` from the project root.
+- **Real contact details.** Update the email addresses, phone/WhatsApp
+  number, and office address in `contact.html` and the footer of every page.
+- **Real social links.** Replace the placeholder `#` social links.
+- **Live currency rates.** The `CURRENCY.rates` object in `js/main.js` is
+  static and illustrative — connect a live FX API for accuracy, or keep it
+  simple and update the rates periodically.
+- **Consider static-rendering destination/article pages for SEO.** They
+  currently render client-side from a `?slug=` query param — good for
+  maintainability (one template, one data file) and modern crawlers do
+  execute JS, but a prerendered/SSG version of `destination.html` and
+  `article.html` per slug would be more robust for search engines and
+  visitors with JS disabled. The `<noscript>` fallback on both pages links
+  back to the listing in the meantime.
+- **PWA icon.** `images/icon.svg` is a simple vector mark. Consider adding
+  raster PNG icons (192×192, 512×512) for broader install-prompt support
+  on platforms with incomplete SVG-icon support.
 
 ## Customisation notes
 
 - Brand colours and typography are defined as CSS variables at the top of
-  `css/style.css` (`:root`).
-- Update the email addresses, phone number, and office address in
-  `contact.html` and the footer of every page once real ones are ready.
-- Replace the placeholder social links (`#`) with real profile URLs.
+  `css/style.css` (`:root`), including a dark-mode override block.
 - Each destination has an original, hand-drawn SVG illustration at
-  `images/destinations/<slug>.svg` (referenced via the `image` field in
-  the `TOURS` array in `js/main.js`) — no external image dependencies or
-  hotlinked stock photography. To switch to real photography once you
-  have licensed images, add a `.jpg`/`.webp` to `images/destinations/`
-  and update that tour's `image` path; the existing `.tour-media-img`
-  styling (object-fit: cover, hover zoom) works unchanged with photos.
+  `images/destinations/<slug>.svg` — no external image dependencies or
+  hotlinked stock photography. To switch to real photography once you have
+  licensed images, add a `.jpg`/`.webp` file and update that tour's `image`
+  path in `js/data.js`; the existing `.tour-media-img` styling (object-fit:
+  cover, hover/ambient zoom) works unchanged with photos.

@@ -6,13 +6,21 @@
 <title>Contact Us — Safiri Horizons</title>
 <meta name="description" content="Get in touch with Safiri Horizons for bespoke African tour bookings, custom itineraries, and travel support — wherever you're writing from.">
 <meta name="theme-color" content="#B7472A">
+<meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23B7472A'/%3E%3Ccircle cx='50' cy='50' r='24' fill='%23F1DBA5'/%3E%3C/svg%3E">
+<link rel="manifest" href="manifest.json">
+<link rel="canonical" href="https://www.safirihorizons.com/contact.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<meta property="og:title" content="Contact Us — Safiri Horizons">
+<meta property="og:description" content="Get in touch with Safiri Horizons for bespoke African tour bookings and travel support.">
+<meta property="og:type" content="website">
 </head>
 <body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <header class="site-header">
   <div class="container">
@@ -25,17 +33,28 @@
     <nav class="main-nav" id="main-nav">
       <a href="index.html">Home</a>
       <a href="tours.html">Tours &amp; Destinations</a>
+      <a href="blog.html">Journal</a>
       <a href="about.html">About Us</a>
       <a href="contact.html" class="active">Contact</a>
     </nav>
     <div class="header-actions">
+      <select class="currency-select" aria-label="Currency">
+        <option value="USD">$ USD</option>
+        <option value="EUR">€ EUR</option>
+        <option value="GBP">£ GBP</option>
+        <option value="KES">KSh KES</option>
+      </select>
+      <button type="button" class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.4M12 19.1v2.4M4.6 4.6l1.7 1.7M17.7 17.7l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.6 19.4l1.7-1.7M17.7 6.3l1.7-1.7"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg>
+      </button>
       <button type="button" class="btn btn-primary btn-sm js-book-now-generic">Book Now</button>
       <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-controls="main-nav"><span></span></button>
     </div>
   </div>
 </header>
 
-<main>
+<main id="main-content">
 
   <section class="page-hero">
     <div class="container">
@@ -102,6 +121,7 @@
             <div>
               <strong>Phone &amp; WhatsApp</strong>
               <p style="margin:2px 0 0;">+254 700 123 456 (Kenya HQ)<br>Available 24/7 for travellers in transit</p>
+              <a href="https://wa.me/254700123456?text=Hi%20Safiri%20Horizons%2C%20I%27d%20like%20to%20plan%20a%20trip." target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font-weight:600;color:var(--color-secondary);">Chat with us on WhatsApp →</a>
             </div>
           </div>
 
@@ -182,6 +202,7 @@
           <li><a href="tours.html">All Destinations</a></li>
           <li><a href="tours.html#tour-grid">Safaris</a></li>
           <li><a href="tours.html#tour-grid">Beach &amp; Islands</a></li>
+          <li><a href="blog.html">Travel Journal</a></li>
           <li><a href="about.html">About Us</a></li>
         </ul>
       </div>
@@ -215,6 +236,10 @@
   </div>
 </footer>
 
+<a class="whatsapp-fab" href="https://wa.me/254700123456?text=Hi%20Safiri%20Horizons%2C%20I%27d%20like%20to%20plan%20a%20trip." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.1.1-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1.1.8 2.2.9 2.4.1.2 1.6 2.4 3.9 3.4.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
+</a>
+
 <div class="toast" id="toast"></div>
 
 <!-- ===================== BOOKING MODAL ===================== -->
@@ -225,8 +250,6 @@
       <span class="kicker">Safiri Horizons</span>
       <h3 id="modal-title-text">Request This Journey</h3>
     </div>
-
-    <div id="modal-detail" style="display:none;"></div>
 
     <div id="modal-form-pane">
       <form id="booking-form" novalidate>
@@ -301,6 +324,7 @@
   </div>
 </div>
 
+<script src="js/data.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
