@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Destination — Safiri Horizons</title>
-<meta name="description" content="Explore a bespoke African journey with Safiri Horizons — full itinerary, inclusions, and booking.">
+<title>Sign In — Safiri Horizons</title>
+<meta name="description" content="Sign in to your Safiri Horizons account to view your booking requests, or create a free account.">
 <meta name="theme-color" content="#B7472A">
 <meta name="color-scheme" content="light dark">
-<link rel="canonical" href="https://www.safirihorizons.com/destination.html">
+<link rel="canonical" href="https://www.safirihorizons.com/login.html">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23B7472A'/%3E%3Ccircle cx='50' cy='50' r='24' fill='%23F1DBA5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<meta property="og:title" content="A Bespoke African Journey — Safiri Horizons">
-<meta property="og:description" content="Full itinerary, inclusions, and booking for a handcrafted African tour.">
+<meta property="og:title" content="Sign In — Safiri Horizons">
+<meta property="og:description" content="Sign in or create a free Safiri Horizons account.">
 <meta property="og:type" content="website">
 </head>
 <body>
@@ -32,7 +32,7 @@
     </a>
     <nav class="main-nav" id="main-nav">
       <a href="index.html">Home</a>
-      <a href="tours.html" class="active">Tours &amp; Destinations</a>
+      <a href="tours.html">Tours &amp; Destinations</a>
       <a href="blog.html">Journal</a>
       <a href="about.html">About Us</a>
       <a href="contact.html">Contact</a>
@@ -57,95 +57,65 @@
 
 <main id="main-content">
 
-  <noscript>
-    <div class="container" style="padding:60px 24px;text-align:center;">
-      <p>This destination page needs JavaScript enabled to load its content. Please <a href="tours.html" style="color:var(--color-primary);font-weight:600;">browse all destinations here</a> instead.</p>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">Home / Sign In</div>
+      <h1>Welcome Back</h1>
+      <p>Sign in to view your booking requests, or create a free account to keep track of every journey you enquire about.</p>
     </div>
-  </noscript>
+  </section>
 
-  <div id="dest-not-found" style="display:none;">
-    <section class="page-hero">
-      <div class="container">
-        <h1>Destination Not Found</h1>
-        <p>We couldn't find that journey. It may have moved — browse the full collection instead.</p>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container" style="text-align:center;">
-        <a href="tours.html" class="btn btn-primary">View All Destinations</a>
-      </div>
-    </section>
-  </div>
-
-  <div id="dest-content" style="display:none;">
-
-    <section class="dest-hero" id="dest-hero">
-      <img id="dest-hero-img" src="" alt="">
-      <div class="container dest-hero-content">
-        <div class="breadcrumb"><a href="tours.html" style="color:inherit;">Tours &amp; Destinations</a> / <span id="dest-country-cat"></span></div>
-        <h1 id="dest-title"></h1>
-        <p id="dest-tagline" style="color:rgba(255,255,255,0.92);max-width:56ch;margin-bottom:14px;"></p>
-        <div class="dest-hero-meta">
-          <span>📅 <span id="dest-meta-duration"></span></span>
-          <span>👥 <span id="dest-meta-group"></span></span>
-          <span>☀️ Best: <span id="dest-meta-best"></span></span>
+  <section class="section">
+    <div class="container auth-wrap">
+      <div class="auth-card">
+        <div class="auth-tabs" role="tablist">
+          <button type="button" class="auth-tab active" data-panel="panel-signin" role="tab" aria-selected="true">Sign In</button>
+          <button type="button" class="auth-tab" data-panel="panel-create" role="tab" aria-selected="false">Create Account</button>
         </div>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="dest-layout">
-          <div>
-            <h2 style="font-size:1.6rem;">Overview</h2>
-            <p id="dest-description" style="font-size:1.05rem;color:var(--color-ink);"></p>
-
-            <h3 style="font-size:1.15rem;margin-top:28px;">Trip Highlights</h3>
-            <ul class="detail-highlights" id="dest-highlights"></ul>
-
-            <h3 style="font-size:1.15rem;margin-top:10px;">Your Itinerary</h3>
-            <div class="timeline" id="dest-itinerary"></div>
-
-            <h3 style="font-size:1.15rem;">What's Included</h3>
-            <div class="inex-grid">
-              <div class="inex-col includes">
-                <h4>Included</h4>
-                <ul id="dest-includes"></ul>
-              </div>
-              <div class="inex-col excludes">
-                <h4>Not Included</h4>
-                <ul id="dest-excludes"></ul>
-              </div>
+        <div class="auth-panel active" id="panel-signin">
+          <div class="auth-error" id="signin-error"></div>
+          <form id="signin-form" novalidate>
+            <div class="field">
+              <label for="signin-email">Email Address <span class="req">*</span></label>
+              <input id="signin-email" name="email" type="email" required autocomplete="email">
             </div>
-          </div>
-
-          <aside class="dest-sidebar">
-            <div class="price-line" id="dest-price"></div>
-            <div class="price-note" id="dest-price-note"></div>
-            <dl>
-              <dt>Duration</dt><dd id="dest-sidebar-duration"></dd>
-              <dt>Group size</dt><dd id="dest-sidebar-group"></dd>
-              <dt>Best time</dt><dd id="dest-sidebar-best"></dd>
-              <dt>Country</dt><dd id="dest-sidebar-country"></dd>
-            </dl>
-            <button type="button" class="btn btn-primary btn-block js-book-tour" id="dest-book-btn">Book This Journey</button>
-            <a href="#" id="dest-whatsapp-btn" target="_blank" rel="noopener" class="btn btn-outline btn-block" style="margin-top:10px;">Ask on WhatsApp</a>
-          </aside>
+            <div class="field">
+              <label for="signin-password">Password <span class="req">*</span></label>
+              <input id="signin-password" name="password" type="password" required autocomplete="current-password" minlength="8">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          </form>
         </div>
-      </div>
-    </section>
 
-    <section class="section section-alt related-tours">
-      <div class="container">
-        <div class="section-head">
-          <span class="kicker">You Might Also Like</span>
-          <h2>More journeys in this style</h2>
+        <div class="auth-panel" id="panel-create">
+          <div class="auth-error" id="create-error"></div>
+          <form id="create-form" novalidate>
+            <div class="field">
+              <label for="create-name">Full Name <span class="req">*</span></label>
+              <input id="create-name" name="name" type="text" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="create-email">Email Address <span class="req">*</span></label>
+              <input id="create-email" name="email" type="email" required autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="create-password">Password <span class="req">*</span></label>
+              <input id="create-password" name="password" type="password" required autocomplete="new-password" minlength="8">
+              <small>At least 8 characters.</small>
+            </div>
+            <div class="field">
+              <label for="create-confirm">Confirm Password <span class="req">*</span></label>
+              <input id="create-confirm" name="confirmPassword" type="password" required autocomplete="new-password" minlength="8">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+          </form>
         </div>
-        <div class="grid grid-3" id="related-grid"></div>
-      </div>
-    </section>
 
-  </div>
+        <p class="auth-note">This is a demo account system: it works fully in your browser, with passwords stored only as a salted hash (never in plain text) — but it isn't backed by a real server. Please don't reuse a password from another site. Your account and saved booking requests live only on this device.</p>
+      </div>
+    </div>
+  </section>
 
 </main>
 
@@ -294,6 +264,6 @@
 <script src="js/data.js"></script>
 <script src="js/auth.js"></script>
 <script src="js/main.js"></script>
-<script src="js/destination.js"></script>
+<script src="js/account.js"></script>
 </body>
 </html>

@@ -15,12 +15,16 @@ about.html            Company story, values, team
 blog.html             Travel journal listing
 article.html          Dynamic article page (?slug=<id>)
 contact.html          Contact form, contact details, FAQ, WhatsApp link
+login.html            Sign in / create account (client-side demo auth — see below)
+account.html          Signed-in dashboard: profile + saved booking requests
 
 css/style.css         All styling — design tokens, dark theme, layout, responsive, motion
 js/data.js            Single source of truth: all tour + article content (window.SH)
+js/auth.js            Demo authentication (accounts, sessions, saved bookings)
 js/main.js            Shared site behaviour: nav, modal, currency, theme, map, forms
 js/destination.js      Renders destination.html from js/data.js
 js/blog.js             Renders blog.html / article.html from js/data.js
+js/account.js          Renders login.html / account.html
 
 images/destinations/*.svg   Original hand-drawn illustration per destination
 images/icon.svg              App icon (used by manifest.json)
@@ -72,6 +76,11 @@ its `destination.html?slug=<id>` page.
 - **Accessibility** — skip-to-content link, visible focus states, a
   focus-trapped/Escape-closable booking modal, `prefers-reduced-motion`
   support, and labelled interactive controls throughout.
+- **Sign in / accounts** (`login.html`, `account.html`) — a fully working
+  demo auth system, entirely client-side (see below): create an account,
+  sign in, and any booking request submitted while signed in is saved to
+  "My Booking Requests" on the account page. The header's account link
+  switches between "Sign In" and "Hi, ⟨name⟩" based on session state.
 
 ## How booking works today
 
@@ -86,6 +95,33 @@ Since this is a static site with no backend, the booking form:
 
 This works globally with no server, but relies on the visitor having a
 configured email client. The contact page form works the same way.
+
+## How sign-in works today
+
+`login.html` / `account.html` / `js/auth.js` implement a real, working demo
+authentication system — but since there's no backend, it lives entirely in
+the visitor's browser (`localStorage`):
+
+1. **Create Account** stores `{ name, email, salt, hash }` — the password
+   itself is never stored. It's combined with a random salt and hashed with
+   SHA-256 via the Web Crypto API before saving.
+2. **Sign In** re-hashes the entered password with the stored salt and
+   compares hashes — the same pattern real backends use, just running
+   client-side instead of on a server.
+3. The session (`{ email, name }`) is stored separately and read by every
+   page to decide whether the header shows "Sign In" or "Hi, ⟨name⟩".
+4. Booking requests submitted while signed in are saved per-account and
+   listed on `account.html`.
+
+**This is not real authentication** — there's no server to verify against,
+so anyone with access to the browser's dev tools can inspect or clear this
+data, and accounts don't sync across devices or browsers. It's a genuine,
+non-misleading demonstration of the UX (and it never stores a plain-text
+password), but before launch, replace `js/auth.js` with a real identity
+provider: [Auth0](https://auth0.com), [Firebase Auth](https://firebase.google.com/docs/auth),
+[Supabase Auth](https://supabase.com/auth), or your own backend with
+properly salted+hashed server-side storage (e.g. bcrypt/argon2) and HTTP-only
+session cookies.
 
 ## Before you launch
 
@@ -113,6 +149,10 @@ configured email client. The contact page form works the same way.
 - **PWA icon.** `images/icon.svg` is a simple vector mark. Consider adding
   raster PNG icons (192×192, 512×512) for broader install-prompt support
   on platforms with incomplete SVG-icon support.
+- **Replace the demo auth system.** `login.html`/`account.html` currently
+  run entirely client-side (see "How sign-in works today" above) — swap in
+  a real identity provider before launch so accounts are real, survive
+  cleared browser storage, and sync across devices.
 
 ## Customisation notes
 

@@ -1003,6 +1003,113 @@ textarea:focus-visible,
   font-size: 0.82rem;
 }
 
+.account-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--color-ink);
+  border: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+.account-nav-link:hover { border-color: var(--color-primary); color: var(--color-primary); }
+
+/* ---------- Auth (login / create account) ---------- */
+.auth-wrap { max-width: 460px; margin: 0 auto; }
+.auth-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: var(--shadow-sm);
+}
+.auth-tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--color-bg-alt);
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 26px;
+}
+.auth-tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+}
+.auth-tab.active { background: var(--color-primary); color: var(--color-white); }
+.auth-panel { display: none; }
+.auth-panel.active { display: block; }
+.auth-error {
+  background: rgba(183, 71, 42, 0.12);
+  color: var(--color-primary-dark);
+  padding: 11px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  display: none;
+}
+.auth-error.show { display: block; }
+.auth-note {
+  font-size: 0.78rem;
+  color: var(--color-ink-faint);
+  margin-top: 18px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ---------- Account dashboard ---------- */
+.account-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.account-avatar {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--gradient-sunset);
+  color: var(--color-white);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+.booking-row {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.booking-row .booking-ref {
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+.booking-row .booking-meta {
+  font-size: 0.82rem;
+  color: var(--color-ink-faint);
+}
+
 /* ---------- WhatsApp floating button ---------- */
 .whatsapp-fab {
   position: fixed;

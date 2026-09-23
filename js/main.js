@@ -302,6 +302,19 @@
         ];
         const mailto = `mailto:bookings@safirihorizons.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
 
+        if (window.SHAuth) {
+          const session = window.SHAuth.getSession();
+          if (session) {
+            window.SHAuth.addBooking(session.email, {
+              ref,
+              destination: tour ? `${tour.name}, ${tour.country}` : "Custom / Undecided",
+              travelers: data.travelers || "",
+              month: data.month || "",
+              submittedAt: new Date().toISOString()
+            });
+          }
+        }
+
         $("#success-ref").textContent = ref;
         $("#success-destination").textContent = tour ? `${tour.name}, ${tour.country}` : "your custom itinerary";
         $("#success-mailto").setAttribute("href", mailto);
@@ -433,6 +446,23 @@
     if (el) el.textContent = new Date().getFullYear();
   }
 
+  /* ---------------------------------------------------------------------
+   * Account nav link — reflects signed-in state (see js/auth.js)
+   * ------------------------------------------------------------------- */
+  function initAccountNav() {
+    if (!window.SHAuth) return;
+    const session = window.SHAuth.getSession();
+    $$(".account-nav-link").forEach((link) => {
+      if (session) {
+        link.textContent = `Hi, ${session.name.split(" ")[0]}`;
+        link.setAttribute("href", "account.html");
+      } else {
+        link.textContent = "Sign In";
+        link.setAttribute("href", "login.html");
+      }
+    });
+  }
+
   let revealObserver;
   function observeReveal() {
     if (!("IntersectionObserver" in window)) {
@@ -466,6 +496,7 @@
     initModal();
     initSimpleForms();
     initFooterYear();
+    initAccountNav();
     initCurrency();
     initMap();
     observeReveal();
