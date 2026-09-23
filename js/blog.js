@@ -6,7 +6,7 @@
 (function () {
   "use strict";
 
-  const SITE_URL = "https://www.safirihorizons.com";
+  const SITE_URL = "https://www.safirihorizons.co.ke";
   const BLOG = (window.SH && window.SH.BLOG) || [];
   const TOURS = (window.SH && window.SH.TOURS) || [];
   const U = window.SHUtils || {};

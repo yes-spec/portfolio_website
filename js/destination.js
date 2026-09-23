@@ -7,7 +7,7 @@
 (function () {
   "use strict";
 
-  const SITE_URL = "https://www.safirihorizons.com";
+  const SITE_URL = "https://www.safirihorizons.co.ke";
   const TOURS = (window.SH && window.SH.TOURS) || [];
   const U = window.SHUtils || {};
   const $ = U.$ || ((sel, ctx) => (ctx || document).querySelector(sel));

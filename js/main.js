@@ -301,7 +301,7 @@
           `Budget range: ${data.budget || ""}`,
           `Notes: ${data.message || ""}`
         ];
-        const mailto = `mailto:bookings@safirihorizons.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+        const mailto = `mailto:bookings@safirihorizons.co.ke?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
 
         const submission = new URLSearchParams();
         submission.append("form-name", "booking");
