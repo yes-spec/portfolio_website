@@ -72,7 +72,10 @@
         <div>
           <span class="kicker">Send a Message</span>
           <h2 style="margin-bottom:20px;">Tell us about your dream trip</h2>
-          <form data-mailto="hello@safirihorizons.com" data-subject="Website General Enquiry" data-success-target="#contact-success" novalidate>
+          <form data-mailto="hello@safirihorizons.com" data-subject="Website General Enquiry" data-success-target="#contact-success" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+            <input type="hidden" name="form-name" value="contact">
+          <p style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true"><label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
             <div class="form-grid">
               <div class="field">
                 <label for="contact-name">Full Name <span class="req">*</span></label>
@@ -96,12 +99,12 @@
               </div>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Send Message</button>
-            <p class="form-note">This opens your email app addressed to <strong>hello@safirihorizons.com</strong> with your message pre-filled. Prefer a full booking form instead? <a href="tours.html" style="color:var(--color-primary);font-weight:600;">Browse tours &amp; book directly</a>.</p>
+            <p class="form-note">Your message goes straight to our inbox. Prefer a full booking form instead? <a href="tours.html" style="color:var(--color-primary);font-weight:600;">Browse tours &amp; book directly</a>.</p>
           </form>
           <div class="form-success" id="contact-success">
             <div class="icon-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div>
             <h3>Message on its way!</h3>
-            <p>If your email app didn't open automatically, write to us directly at <strong>hello@safirihorizons.com</strong>.</p>
+            <p>We'll reply within 24 hours. You can also write to us directly at <a href="mailto:hello@safirihorizons.com"><strong>hello@safirihorizons.com</strong></a>.</p>
           </div>
         </div>
 
@@ -219,7 +222,10 @@
       <div>
         <h4>Stay Inspired</h4>
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.65);">New destinations and seasonal offers, once a month.</p>
-        <form class="newsletter-form" id="newsletter-form">
+        <form class="newsletter-form" id="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="newsletter">
+          <p style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true"><label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
           <label for="newsletter-email" class="visually-hidden">Email address</label>
           <input id="newsletter-email" type="email" required placeholder="Your email address">
           <button type="submit" class="btn-sm">Join</button>
@@ -253,7 +259,10 @@
     </div>
 
     <div id="modal-form-pane">
-      <form id="booking-form" novalidate>
+      <form id="booking-form" name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="booking">
+          <p style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true"><label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
         <div class="form-grid">
           <div class="field">
             <label for="booking-name">Full Name <span class="req">*</span></label>
@@ -307,7 +316,7 @@
           </div>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Submit Booking Request</button>
-        <p class="form-note">We'll open your email app with this request pre-filled to <strong>bookings@safirihorizons.com</strong> — or reply within 24 hours if you email us directly.</p>
+        <p class="form-note">Your request goes straight to our booking team's inbox — a Safiri Horizons specialist replies within 24 hours.</p>
       </form>
     </div>
 
@@ -316,7 +325,7 @@
       <h3>Request Received!</h3>
       <p>Thank you for your interest in <strong id="success-destination"></strong>. Your reference number is:</p>
       <span class="ref-code" id="success-ref"></span>
-      <p>A Safiri Horizons travel specialist will reach out within 24 hours. If your email app didn't open automatically, use the button below.</p>
+      <p>A Safiri Horizons travel specialist will reach out within 24 hours. You can also email us directly using the button below.</p>
       <div class="tour-actions" style="justify-content:center;">
         <a href="#" id="success-mailto" class="btn btn-outline">Email Us Directly</a>
         <button type="button" class="btn btn-primary js-close-modal">Done</button>

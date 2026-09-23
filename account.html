@@ -128,7 +128,10 @@
       <div>
         <h4>Stay Inspired</h4>
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.65);">New destinations and seasonal offers, once a month.</p>
-        <form class="newsletter-form" id="newsletter-form">
+        <form class="newsletter-form" id="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="newsletter">
+          <p style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true"><label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
           <label for="newsletter-email" class="visually-hidden">Email address</label>
           <input id="newsletter-email" type="email" required placeholder="Your email address">
           <button type="submit" class="btn-sm">Join</button>
@@ -162,7 +165,10 @@
     </div>
 
     <div id="modal-form-pane">
-      <form id="booking-form" novalidate>
+      <form id="booking-form" name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="booking">
+          <p style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true"><label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
         <div class="form-grid">
           <div class="field">
             <label for="booking-name">Full Name <span class="req">*</span></label>
@@ -216,7 +222,7 @@
           </div>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Submit Booking Request</button>
-        <p class="form-note">We'll open your email app with this request pre-filled to <strong>bookings@safirihorizons.com</strong> — or reply within 24 hours if you email us directly.</p>
+        <p class="form-note">Your request goes straight to our booking team's inbox — a Safiri Horizons specialist replies within 24 hours.</p>
       </form>
     </div>
 
@@ -225,7 +231,7 @@
       <h3>Request Received!</h3>
       <p>Thank you for your interest in <strong id="success-destination"></strong>. Your reference number is:</p>
       <span class="ref-code" id="success-ref"></span>
-      <p>A Safiri Horizons travel specialist will reach out within 24 hours. If your email app didn't open automatically, use the button below.</p>
+      <p>A Safiri Horizons travel specialist will reach out within 24 hours. You can also email us directly using the button below.</p>
       <div class="tour-actions" style="justify-content:center;">
         <a href="#" id="success-mailto" class="btn btn-outline">Email Us Directly</a>
         <button type="button" class="btn btn-primary js-close-modal">Done</button>

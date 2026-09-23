@@ -269,12 +269,13 @@
       }
     });
 
-    /* Booking form submission (client-side, no backend required).
-       Generates a reference number, shows a confirmation panel, and opens
-       the visitor's email client (mailto:) pre-filled with the enquiry.
-       To wire this to a real backend, replace the body of this handler
-       with a fetch() call to Formspree / EmailJS / your own API — the
-       validation and field collection above already do the work. */
+    /* Booking form submission. Primary channel is a Netlify Forms POST
+       (the form carries data-netlify="true" in the HTML so Netlify's
+       build bot registers it) — this reaches a real inbox without the
+       visitor needing a configured email client. The mailto: link stays
+       available on the confirmation panel as a manual fallback, and off
+       Netlify (e.g. opened via file://) the fetch simply fails silently
+       and the visitor can still use that fallback link. */
     if (form) {
       form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -302,6 +303,16 @@
         ];
         const mailto = `mailto:bookings@safirihorizons.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
 
+        const submission = new URLSearchParams();
+        submission.append("form-name", "booking");
+        submission.append("reference", ref);
+        Object.entries(data).forEach(([key, value]) => submission.append(key, value));
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: submission.toString()
+        }).catch(() => { /* offline / not on Netlify — mailto fallback below still works */ });
+
         if (window.SHAuth) {
           const session = window.SHAuth.getSession();
           if (session) {
@@ -322,8 +333,6 @@
         formPane.style.display = "none";
         successPane.classList.add("show");
         form.reset();
-
-        window.location.href = mailto;
       });
     }
   }
@@ -331,6 +340,17 @@
   /* ---------------------------------------------------------------------
    * Generic contact / newsletter forms (client-side confirmation)
    * ------------------------------------------------------------------- */
+  function postToNetlify(formName, data) {
+    const body = new URLSearchParams();
+    body.append("form-name", formName);
+    Object.entries(data).forEach(([key, value]) => body.append(key, value));
+    return fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: body.toString()
+    });
+  }
+
   function initSimpleForms() {
     $$("form[data-mailto]").forEach((form) => {
       form.addEventListener("submit", (e) => {
@@ -340,12 +360,18 @@
           return;
         }
         const data = Object.fromEntries(new FormData(form).entries());
+        postToNetlify(form.getAttribute("name") || "contact", data)
+          .catch(() => { /* offline / not on Netlify — mailto fallback below still works */ });
+
         const to = form.dataset.mailto;
         const subject = form.dataset.subject || "Website enquiry";
         const body = Object.entries(data).map(([k, v]) => `${k}: ${v}`).join("\n");
-        window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         const successEl = $(form.dataset.successTarget);
-        if (successEl) successEl.classList.add("show");
+        if (successEl) {
+          successEl.classList.add("show");
+          const mailtoBtn = $("a[href^='mailto:']", successEl);
+          if (mailtoBtn) mailtoBtn.setAttribute("href", `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+        }
         form.reset();
         showToast("Thank you! Your message is on its way.");
       });
@@ -355,6 +381,9 @@
     if (newsletter) {
       newsletter.addEventListener("submit", (e) => {
         e.preventDefault();
+        const email = $("#newsletter-email", newsletter);
+        postToNetlify("newsletter", { email: email ? email.value : "" })
+          .catch(() => { /* offline / not on Netlify — subscription just won't be recorded */ });
         showToast("You're subscribed! Watch your inbox for new journeys.");
         newsletter.reset();
       });

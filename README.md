@@ -84,17 +84,29 @@ its `destination.html?slug=<id>` page.
 
 ## How booking works today
 
-Since this is a static site with no backend, the booking form:
+The booking modal, the contact page form, and the newsletter form are all
+wired for **Netlify Forms** — no backend code required, but real submissions
+land in an inbox rather than depending on the visitor's own email client:
 
-1. Validates required fields in the browser.
-2. Generates a reference number (e.g. `SH-4KD2Z`).
-3. Shows an on-page confirmation panel.
-4. Opens the visitor's email client via a pre-filled `mailto:` link
-   addressed to `bookings@safirihorizons.com`, containing every field
-   they submitted.
+1. Each `<form>` carries `data-netlify="true"`, a `name`, a hidden
+   `form-name` field, and a hidden honeypot field for basic spam filtering.
+   Netlify's build bot detects these automatically from the static HTML —
+   nothing else to configure at the platform level.
+2. On submit, `js/main.js` validates the fields in the browser, generates a
+   reference number (e.g. `SH-4KD2Z`) for bookings, and POSTs the data to
+   Netlify Forms via `fetch()`.
+3. Netlify stores each submission (visible under **Site → Forms** in the
+   Netlify dashboard) and can forward a notification email per submission
+   — set that up under **Forms → Form notifications** once deployed.
+4. A `mailto:` link stays on the confirmation panel as a manual fallback
+   (e.g. if a visitor is on a very old browser, or the site isn't deployed
+   to Netlify yet — the `fetch()` just fails silently and the link still
+   works).
 
-This works globally with no server, but relies on the visitor having a
-configured email client. The contact page form works the same way.
+This only works once the site is deployed on Netlify — opening the HTML
+files directly (`file://`) or serving them from a different host will show
+the same UI but the Netlify submission itself won't go anywhere; the
+`mailto:` fallback still functions everywhere.
 
 ## How sign-in works today
 
@@ -123,11 +135,23 @@ provider: [Auth0](https://auth0.com), [Firebase Auth](https://firebase.google.co
 properly salted+hashed server-side storage (e.g. bcrypt/argon2) and HTTP-only
 session cookies.
 
+## Deploying to Netlify
+
+1. Push this repo to GitHub (already done if you're reading this from a PR).
+2. In Netlify: **Add new site → Import an existing project → GitHub**, pick
+   this repo. Build command: none. Publish directory: `.` (already set in
+   `netlify.toml`).
+3. Deploy. Netlify auto-detects the `data-netlify="true"` forms in the HTML
+   the first time it builds — check **Site → Forms** afterwards to confirm
+   `booking`, `contact`, and `newsletter` all show up.
+4. Under **Forms → Form notifications**, add an email notification for each
+   form pointing at the address you want submissions delivered to.
+5. Under **Domain management**, add your custom domain and follow Netlify's
+   DNS instructions (either delegate DNS to Netlify, or add the CNAME/A
+   records it gives you at your registrar). SSL is issued automatically.
+
 ## Before you launch
 
-- **Wire a real form backend.** Replace the `mailto:` logic in the `submit`
-  handlers in `js/main.js` (`initModal()`, `initSimpleForms()`) with a
-  `fetch()` call to Formspree, EmailJS, Netlify Forms, or your own API.
 - **Set the real domain.** `js/destination.js`, `js/blog.js`, every page's
   `<link rel="canonical">`, `sitemap.xml`, and `robots.txt` currently use
   the placeholder `https://www.safirihorizons.com` (matching the fictional
