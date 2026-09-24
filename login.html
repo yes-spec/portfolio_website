@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In — Safiri Horizons</title>
+<meta name="description" content="Sign in to your Safiri Horizons account to view your booking requests, or create a free account.">
+<meta name="theme-color" content="#B7472A">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://www.safirihorizons.co.ke/login.html">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23B7472A'/%3E%3Ccircle cx='50' cy='50' r='24' fill='%23F1DBA5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<meta property="og:title" content="Sign In — Safiri Horizons">
+<meta property="og:description" content="Sign in or create a free Safiri Horizons account.">
+<meta property="og:type" content="website">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.6 4.6l1.7 1.7M17.7 17.7l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.6 19.4l1.7-1.7M17.7 6.3l1.7-1.7"/></svg>
+      </span>
+      <span>Safiri Horizons<small>Tours &amp; Hospitality</small></span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html">Home</a>
+      <a href="tours.html">Tours &amp; Destinations</a>
+      <a href="blog.html">Journal</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <select class="currency-select" aria-label="Currency">
+        <option value="USD">$ USD</option>
+        <option value="EUR">€ EUR</option>
+        <option value="GBP">£ GBP</option>
+        <option value="KES">KSh KES</option>
+      </select>
+      <button type="button" class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.4M12 19.1v2.4M4.6 4.6l1.7 1.7M17.7 17.7l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.6 19.4l1.7-1.7M17.7 6.3l1.7-1.7"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg>
+      </button>
+      <a href="login.html" class="account-nav-link" id="account-nav-link" aria-label="Account">Sign In</a>
+      <button type="button" class="btn btn-primary btn-sm js-book-now-generic">Book Now</button>
+      <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-controls="main-nav"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">Home / Sign In</div>
+      <h1>Welcome Back</h1>
+      <p>Sign in to view your booking requests, or create a free account to keep track of every journey you enquire about.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container auth-wrap">
+      <div class="auth-card">
+        <div class="auth-tabs" role="tablist">
+          <button type="button" class="auth-tab active" data-panel="panel-signin" role="tab" aria-selected="true">Sign In</button>
+          <button type="button" class="auth-tab" data-panel="panel-create" role="tab" aria-selected="false">Create Account</button>
+        </div>
+
+        <div class="auth-panel active" id="panel-signin">
+          <div class="auth-error" id="signin-error"></div>
+          <form id="signin-form" novalidate>
+            <div class="field">
+              <label for="signin-email">Email Address <span class="req">*</span></label>
+              <input id="signin-email" name="email" type="email" required autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="signin-password">Password <span class="req">*</span></label>
+              <input id="signin-password" name="password" type="password" required autocomplete="current-password" minlength="8">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          </form>
+        </div>
+
+        <div class="auth-panel" id="panel-create">
+          <div class="auth-error" id="create-error"></div>
+          <form id="create-form" novalidate>
+            <div class="field">
+              <label for="create-name">Full Name <span class="req">*</span></label>
+              <input id="create-name" name="name" type="text" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="create-email">Email Address <span class="req">*</span></label>
+              <input id="create-email" name="email" type="email" required autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="create-password">Password <span class="req">*</span></label>
+              <input id="create-password" name="password" type="password" required autocomplete="new-password" minlength="8">
+              <small>At least 8 characters.</small>
+            </div>
+            <div class="field">
+              <label for="create-confirm">Confirm Password <span class="req">*</span></label>
+              <input id="create-confirm" name="confirmPassword" type="password" required autocomplete="new-password" minlength="8">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+          </form>
+        </div>
+
+        <p class="auth-note">This is a demo account system: it works fully in your browser, with passwords stored only as a salted hash (never in plain text) — but it isn't backed by a real server. Please don't reuse a password from another site. Your account and saved booking requests live only on this device.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" style="color:#fff;margin-bottom:14px;display:inline-flex;">
+          <span class="brand-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.6 4.6l1.7 1.7M17.7 17.7l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.6 19.4l1.7-1.7M17.7 6.3l1.7-1.7"/></svg>
+          </span>
+          <span>Safiri Horizons</span>
+        </a>
+        <p>Bespoke African safaris, beach escapes, and cultural journeys — designed for travellers everywhere.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7"><path d="M14 9h3V6h-3a3 3 0 0 0-3 3v2H8v3h3v6h3v-6h3l1-3h-4V9a1 1 0 0 1 1-1Z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7"><rect x="2.5" y="6" width="19" height="12" rx="3"/><path d="M10.5 9.5v5l4.5-2.5Z" fill="#fff" stroke="none"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="tours.html">All Destinations</a></li>
+          <li><a href="blog.html">Travel Journal</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html#faq">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Stay Inspired</h4>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.65);">New destinations and seasonal offers, once a month.</p>
+        <form class="newsletter-form" id="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="newsletter">
+          <p style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true"><label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+          <label for="newsletter-email" class="visually-hidden">Email address</label>
+          <input id="newsletter-email" type="email" required placeholder="Your email address">
+          <button type="submit" class="btn-sm">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Safiri Horizons Tours &amp; Hospitality. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="contact.html">Privacy</a>
+        <a href="contact.html">Terms</a>
+        <a href="contact.html">Support</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-fab" href="https://wa.me/254700123456?text=Hi%20Safiri%20Horizons%2C%20I%27d%20like%20to%20plan%20a%20trip." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.1.1-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1.1.8 2.2.9 2.4.1.2 1.6 2.4 3.9 3.4.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
+</a>
+
+<div class="toast" id="toast"></div>
+
+<!-- ===================== BOOKING MODAL ===================== -->
+<div class="modal-overlay" id="booking-modal">
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title-text">
+    <button type="button" class="modal-close js-close-modal" aria-label="Close">✕</button>
+    <div class="modal-header">
+      <span class="kicker">Safiri Horizons</span>
+      <h3 id="modal-title-text">Request This Journey</h3>
+    </div>
+
+    <div id="modal-form-pane">
+      <form id="booking-form" name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="booking">
+          <p style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true"><label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="booking-name">Full Name <span class="req">*</span></label>
+            <input id="booking-name" name="name" type="text" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="booking-email">Email Address <span class="req">*</span></label>
+            <input id="booking-email" name="email" type="email" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="booking-phone">Phone / WhatsApp</label>
+            <input id="booking-phone" name="phone" type="tel" placeholder="+1 555 123 4567">
+          </div>
+          <div class="field">
+            <label for="booking-country">Country of Residence <span class="req">*</span></label>
+            <input id="booking-country" name="country" type="text" required autocomplete="country-name">
+          </div>
+          <div class="field full">
+            <label for="booking-destination">Destination <span class="req">*</span></label>
+            <select id="booking-destination" name="destination" required>
+              <option value="" disabled selected>Select a destination</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="booking-travelers">Number of Travellers <span class="req">*</span></label>
+            <input id="booking-travelers" name="travelers" type="number" min="1" max="20" value="2" required>
+          </div>
+          <div class="field">
+            <label for="booking-month">Preferred Travel Month</label>
+            <select id="booking-month" name="month">
+              <option value="">Flexible / Not sure</option>
+              <option>January</option><option>February</option><option>March</option>
+              <option>April</option><option>May</option><option>June</option>
+              <option>July</option><option>August</option><option>September</option>
+              <option>October</option><option>November</option><option>December</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="booking-budget">Approximate Budget (per person)</label>
+            <select id="booking-budget" name="budget">
+              <option value="">Prefer not to say</option>
+              <option>Under $1,500</option>
+              <option>$1,500 – $2,500</option>
+              <option>$2,500 – $4,000</option>
+              <option>$4,000+</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="booking-message">Tell us more (dietary needs, special occasions, accessibility, etc.)</label>
+            <textarea id="booking-message" name="message" rows="3"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit Booking Request</button>
+        <p class="form-note">Your request goes straight to our booking team's inbox — a Safiri Horizons specialist replies within 24 hours.</p>
+      </form>
+    </div>
+
+    <div class="form-success" id="modal-success">
+      <div class="icon-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div>
+      <h3>Request Received!</h3>
+      <p>Thank you for your interest in <strong id="success-destination"></strong>. Your reference number is:</p>
+      <span class="ref-code" id="success-ref"></span>
+      <p>A Safiri Horizons travel specialist will reach out within 24 hours. You can also email us directly using the button below.</p>
+      <div class="tour-actions" style="justify-content:center;">
+        <a href="#" id="success-mailto" class="btn btn-outline">Email Us Directly</a>
+        <button type="button" class="btn btn-primary js-close-modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/main.js"></script>
+<script src="js/account.js"></script>
+</body>
+</html>

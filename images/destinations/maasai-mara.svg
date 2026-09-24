@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-labelledby="t">
+<title id="t">Sunset over the Maasai Mara savanna with an acacia tree</title>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#F2965C"/>
+    <stop offset="55%" stop-color="#D9683A"/>
+    <stop offset="100%" stop-color="#8F3520"/>
+  </linearGradient>
+  <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#6E3A22"/>
+    <stop offset="100%" stop-color="#432313"/>
+  </linearGradient>
+</defs>
+<rect width="400" height="300" fill="url(#sky)"/>
+<circle cx="205" cy="150" r="58" fill="#FBEFC8" opacity="0.92"/>
+<path d="M0 205 Q100 190 200 202 T400 198 V300 H0 Z" fill="url(#ground)"/>
+<g opacity="0.9" fill="#2B160C">
+  <path d="M300 260 q4-40 -2-58 q10 6 16 -4 q-14 -6 -16 -20 q10 8 18 0 q-16 -4 -18 -22 q7 4 12 -8 q-10 2 -14 -14 q-2 30 -6 52 q-14 0 -18 12 q10 2 14 -2 q-4 20 -10 34 q10 -2 24 30 Z"/>
+  <ellipse cx="300" cy="262" rx="30" ry="4"/>
+</g>
+<g fill="#2B160C" opacity="0.85">
+  <path d="M40 250 q10 -14 6 -26 q6 4 4 -8 q6 6 2 -10 l4 2 q4 14 -2 24 q6 -2 4 8 q6 -2 2 10 q-10 8 -20 0 Z"/>
+  <path d="M46 250 l2 14 M60 246 l4 12" stroke="#2B160C" stroke-width="2"/>
+</g>
+<g fill="#1E1109" opacity="0.8">
+  <ellipse cx="140" cy="258" rx="7" ry="4"/><path d="M133 258 q-6 -2 -10 2 M147 258 q6 -2 9 1 M138 254 l-2 -6 M143 254 l2 -6" stroke="#1E1109" stroke-width="1.6" fill="none"/>
+  <ellipse cx="170" cy="262" rx="6" ry="3.4"/><path d="M164 262 q-5 -2 -8 1 M176 262 q5 -2 8 1" stroke="#1E1109" stroke-width="1.4" fill="none"/>
+</g>
+</svg>

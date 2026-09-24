@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-labelledby="t">
+<title id="t">The Ngorongoro Crater rim above the endless Serengeti plains</title>
+<defs>
+  <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#F7C873"/>
+    <stop offset="100%" stop-color="#E8871E"/>
+  </linearGradient>
+  <linearGradient id="crater" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#3E6B45"/>
+    <stop offset="100%" stop-color="#203A24"/>
+  </linearGradient>
+</defs>
+<rect width="400" height="300" fill="url(#sky2)"/>
+<circle cx="330" cy="70" r="34" fill="#FFF6E0" opacity="0.9"/>
+<path d="M-10 130 Q80 90 200 118 T410 110 V150 Q300 130 200 150 T-10 150 Z" fill="#5B7A46" opacity="0.55"/>
+<path d="M-10 165 Q120 200 200 168 Q280 138 410 175 V300 H-10 Z" fill="url(#crater)"/>
+<path d="M-10 165 Q120 200 200 168 Q280 138 410 175" fill="none" stroke="#8FA85B" stroke-width="4" opacity="0.6"/>
+<g fill="#1E2B18" opacity="0.85">
+  <circle cx="90" cy="230" r="3"/><circle cx="105" cy="236" r="3"/><circle cx="120" cy="228" r="3"/>
+  <circle cx="150" cy="245" r="3"/><circle cx="168" cy="238" r="3"/><circle cx="185" cy="250" r="3"/>
+  <circle cx="230" cy="242" r="3"/><circle cx="250" cy="234" r="3"/><circle cx="270" cy="248" r="3"/>
+  <circle cx="60" cy="252" r="3"/><circle cx="310" cy="230" r="3"/><circle cx="330" cy="244" r="3"/>
+</g>
+<path d="M0 270 Q100 258 200 268 T400 262 V300 H0 Z" fill="#152714"/>
+</svg>
