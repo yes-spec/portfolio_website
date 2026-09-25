@@ -306,7 +306,10 @@
         const submission = new URLSearchParams();
         submission.append("form-name", "booking");
         submission.append("reference", ref);
-        Object.entries(data).forEach(([key, value]) => submission.append(key, value));
+        Object.entries(data).forEach(([key, value]) => {
+          if (key === "form-name") return;
+          submission.append(key, value);
+        });
         fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -343,7 +346,10 @@
   function postToNetlify(formName, data) {
     const body = new URLSearchParams();
     body.append("form-name", formName);
-    Object.entries(data).forEach(([key, value]) => body.append(key, value));
+    Object.entries(data).forEach(([key, value]) => {
+      if (key === "form-name") return;
+      body.append(key, value);
+    });
     return fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
