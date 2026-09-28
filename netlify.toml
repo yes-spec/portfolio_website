@@ -1,6 +1,9 @@
 [build]
   publish = "."
 
+[build.processing.html]
+  pretty_urls = false
+
 [[headers]]
   for = "/*"
   [headers.values]
