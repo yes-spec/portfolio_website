@@ -1153,6 +1153,11 @@ textarea:focus-visible,
   max-width: 640px;
   margin: 0 auto;
   position: relative;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  padding: 28px 24px 16px;
+  box-shadow: 0 16px 40px rgba(34,26,18,0.08);
 }
 .africa-map {
   width: 100%;
@@ -1161,24 +1166,27 @@ textarea:focus-visible,
   overflow: visible;
   transition: transform 0.25s ease;
   transform-origin: 50% 50%;
-  filter: drop-shadow(0 10px 22px rgba(34,26,18,0.14));
 }
 .africa-map .country {
   fill: var(--color-accent-light);
-  stroke: var(--color-white);
-  stroke-width: 0.8;
+  stroke: var(--color-ink-fixed);
+  stroke-opacity: 0.35;
+  stroke-width: 1.4;
   stroke-linejoin: round;
   cursor: default;
-  transition: fill 0.15s ease, stroke 0.15s ease;
+  transition: fill 0.15s ease, stroke-opacity 0.15s ease;
   outline: none;
 }
 .africa-map .country:hover,
 .africa-map .country:focus-visible,
 .africa-map .country.is-active {
   fill: var(--color-primary);
+  stroke-opacity: 0.6;
 }
 .africa-map .country.has-tours {
   fill: var(--color-primary);
+  stroke: var(--color-white);
+  stroke-opacity: 0.9;
   cursor: pointer;
 }
 .africa-map .country.has-tours:hover,
@@ -1187,13 +1195,14 @@ textarea:focus-visible,
   fill: var(--color-accent);
 }
 :root[data-theme="dark"] .africa-map .country {
-  fill: #3A2F1D;
-  stroke: var(--color-bg, #1C1712);
+  fill: #4A3B24;
+  stroke: #C9BCA3;
+  stroke-opacity: 0.4;
 }
 :root[data-theme="dark"] .africa-map .country:hover,
 :root[data-theme="dark"] .africa-map .country:focus-visible,
-:root[data-theme="dark"] .africa-map .country.is-active { fill: var(--color-primary); }
-:root[data-theme="dark"] .africa-map .country.has-tours { fill: var(--color-primary); }
+:root[data-theme="dark"] .africa-map .country.is-active { fill: var(--color-primary); stroke-opacity: 0.7; }
+:root[data-theme="dark"] .africa-map .country.has-tours { fill: var(--color-primary); stroke: #F3ECDD; stroke-opacity: 0.85; }
 :root[data-theme="dark"] .africa-map .country.has-tours:hover,
 :root[data-theme="dark"] .africa-map .country.has-tours:focus-visible,
 :root[data-theme="dark"] .africa-map .country.has-tours.is-active { fill: var(--color-accent); }
@@ -1203,7 +1212,9 @@ textarea:focus-visible,
   flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
-  margin-bottom: 12px;
+  margin: 0 0 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
   font-size: 0.82rem;
   color: var(--color-ink-faint);
 }
@@ -1219,10 +1230,13 @@ textarea:focus-visible,
 .swatch-other { background: var(--color-accent-light); border: 1px solid var(--color-ink-faint); }
 :root[data-theme="dark"] .swatch-other { background: #3A2F1D; }
 
+.map-canvas {
+  position: relative;
+}
 .map-zoom-controls {
   position: absolute;
-  top: 4px;
-  right: 4px;
+  top: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   gap: 4px;
