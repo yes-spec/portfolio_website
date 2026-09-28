@@ -154,7 +154,7 @@ session cookies.
 
 - **Set the real domain.** `js/destination.js`, `js/blog.js`, every page's
   `<link rel="canonical">`, `sitemap.xml`, and `robots.txt` currently use
-  the placeholder `https://www.safirihorizons.co.ke` (matching the fictional
+  the placeholder `https://safirihorizons.co.ke` (matching the fictional
   brand's existing email addresses). Swap it for the live domain everywhere
   — a quick way is `grep -rl safirihorizons.co.ke .` from the project root.
 - **Real contact details.** Update the email addresses, phone/WhatsApp
