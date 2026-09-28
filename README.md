@@ -62,10 +62,16 @@ its `destination.html?slug=<id>` page.
 - **WhatsApp click-to-chat** — floating button on every page plus a link on
   the contact page, using `wa.me` with a pre-filled message. Update the
   phone number (`254700123456`) to the real one before launch.
-- **Interactive Africa map** (`tours.html`) — inline SVG with a pin per
-  destination (positions in `TOURS[].mapPin`), each linking straight to
-  that destination's page. Explicitly labelled "illustrative, not to
-  scale" — it's a stylised silhouette, not a surveyed map.
+- **Interactive Africa map** (`tours.html`) — a real political map of the
+  continent (actual country borders, from Natural Earth via the
+  `world-atlas` dataset), baked as static SVG `<path>` elements directly
+  into the page at build time — so it renders and is crawlable even with
+  JavaScript off. `js/countries.js` holds top-places-to-visit copy for
+  every African country; `js/africa-map.js` layers on hover/focus
+  tooltips, zoom controls, and click-through to the tour list for the
+  countries with a bookable Safiri Horizons journey (`js/data.js`
+  `TOURS[].country`). No map library ships to visitors — see
+  "Regenerating the Africa map" below for how the paths were produced.
 - **Destination pages** — full itinerary timeline, inclusions/exclusions,
   related journeys, and per-page SEO meta + `TouristTrip` JSON-LD, all
   rendered client-side from `js/data.js` (see SEO note below).
@@ -188,3 +194,16 @@ session cookies.
   licensed images, add a `.jpg`/`.webp` file and update that tour's `image`
   path in `js/data.js`; the existing `.tour-media-img` styling (object-fit:
   cover, hover/ambient zoom) works unchanged with photos.
+- **Regenerating the Africa map.** The `<path>` elements in `tours.html`'s
+  `#africa-map` SVG are precomputed, not hand-drawn: real African country
+  boundaries (50m resolution, from the `world-atlas` npm package, itself
+  derived from the public-domain Natural Earth dataset) were projected
+  with `d3-geo`'s `geoMercator` + `geoPath` in a one-off Node script and
+  the resulting `d` attributes pasted into the page. To change the
+  projection, resolution, or add new countries, re-run the same steps:
+  `npm pack world-atlas d3-geo d3-array topojson-client`, extract
+  `countries-50m.json`, convert to GeoJSON with `topojson.feature`, filter
+  to the countries you want, then run each feature through
+  `d3.geoPath(d3.geoMercator().fitSize([w, h], geojson))` to get its `d`
+  string. `js/countries.js` keys its data by each country's exact Natural
+  Earth `name` property, so keep that mapping in sync if you regenerate.

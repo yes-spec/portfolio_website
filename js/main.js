@@ -406,66 +406,6 @@
   }
 
   /* ---------------------------------------------------------------------
-   * Interactive Africa map — renders pins from TOURS onto the inline SVG
-   * already present in the page (id="africa-map"), each linking to its
-   * destination page, with a hover/focus tooltip naming the journey.
-   * ------------------------------------------------------------------- */
-  function initMap() {
-    const svg = $("#africa-map");
-    const wrap = $(".africa-map-wrap");
-    if (!svg || !wrap) return;
-
-    const tooltip = document.createElement("div");
-    tooltip.className = "map-tooltip";
-    wrap.appendChild(tooltip);
-
-    const ns = "http://www.w3.org/2000/svg";
-    TOURS.forEach((tour) => {
-      if (!tour.mapPin) return;
-      const link = document.createElementNS(ns, "a");
-      link.setAttribute("href", `destination.html?slug=${tour.id}`);
-      link.setAttribute("class", "map-pin");
-      link.setAttribute("tabindex", "0");
-      link.setAttribute("aria-label", `${tour.name}, ${tour.country}`);
-
-      const pulse = document.createElementNS(ns, "circle");
-      pulse.setAttribute("class", "pulse");
-      pulse.setAttribute("cx", tour.mapPin.x);
-      pulse.setAttribute("cy", tour.mapPin.y);
-      pulse.setAttribute("r", "6");
-
-      const dot = document.createElementNS(ns, "circle");
-      dot.setAttribute("class", "dot");
-      dot.setAttribute("cx", tour.mapPin.x);
-      dot.setAttribute("cy", tour.mapPin.y);
-      dot.setAttribute("r", "6");
-
-      link.appendChild(pulse);
-      link.appendChild(dot);
-      svg.appendChild(link);
-
-      const showTip = () => {
-        const svgRect = svg.getBoundingClientRect();
-        const wrapRect = wrap.getBoundingClientRect();
-        const scaleX = svgRect.width / svg.viewBox.baseVal.width;
-        const scaleY = svgRect.height / svg.viewBox.baseVal.height;
-        const left = (svgRect.left - wrapRect.left) + tour.mapPin.x * scaleX;
-        const top = (svgRect.top - wrapRect.top) + tour.mapPin.y * scaleY;
-        tooltip.textContent = `${tour.name} — ${tour.country}`;
-        tooltip.style.left = left + "px";
-        tooltip.style.top = top + "px";
-        tooltip.classList.add("show");
-      };
-      const hideTip = () => tooltip.classList.remove("show");
-
-      link.addEventListener("mouseenter", showTip);
-      link.addEventListener("mouseleave", hideTip);
-      link.addEventListener("focus", showTip);
-      link.addEventListener("blur", hideTip);
-    });
-  }
-
-  /* ---------------------------------------------------------------------
    * Nav toggle, footer year, scroll reveal
    * ------------------------------------------------------------------- */
   function initNav() {
@@ -533,7 +473,6 @@
     initFooterYear();
     initAccountNav();
     initCurrency();
-    initMap();
     observeReveal();
   });
 

@@ -1150,56 +1150,137 @@ textarea:focus-visible,
 
 /* ---------- Interactive Africa map ---------- */
 .africa-map-wrap {
-  max-width: 480px;
+  max-width: 640px;
   margin: 0 auto;
   position: relative;
 }
-.africa-map { width: 100%; height: auto; }
-.africa-map .landmass {
-  fill: var(--color-accent-light);
-  stroke: var(--color-primary);
-  stroke-width: 3;
-  stroke-linejoin: round;
-  filter: drop-shadow(0 8px 18px rgba(34,26,18,0.12));
+.africa-map {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+  transition: transform 0.25s ease;
+  transform-origin: 50% 50%;
+  filter: drop-shadow(0 10px 22px rgba(34,26,18,0.14));
 }
-:root[data-theme="dark"] .africa-map .landmass { fill: #3A2F1D; stroke: var(--color-accent); }
-.map-pin {
+.africa-map .country {
+  fill: var(--color-accent-light);
+  stroke: var(--color-white);
+  stroke-width: 0.8;
+  stroke-linejoin: round;
+  cursor: default;
+  transition: fill 0.15s ease, stroke 0.15s ease;
+  outline: none;
+}
+.africa-map .country:hover,
+.africa-map .country:focus-visible,
+.africa-map .country.is-active {
+  fill: var(--color-primary);
+}
+.africa-map .country.has-tours {
+  fill: var(--color-primary);
   cursor: pointer;
 }
-.map-pin circle.dot {
-  fill: var(--color-primary);
-  stroke: var(--color-white);
-  stroke-width: 2;
-  transition: r 0.15s ease, fill 0.15s ease;
+.africa-map .country.has-tours:hover,
+.africa-map .country.has-tours:focus-visible,
+.africa-map .country.has-tours.is-active {
+  fill: var(--color-accent);
 }
-.map-pin:hover circle.dot, .map-pin:focus-visible circle.dot { fill: var(--color-accent); }
-.map-pin circle.pulse {
-  fill: none;
-  stroke: var(--color-primary);
-  stroke-width: 2;
-  opacity: 0.5;
-  animation: map-pulse 2.4s ease-out infinite;
+:root[data-theme="dark"] .africa-map .country {
+  fill: #3A2F1D;
+  stroke: var(--color-bg, #1C1712);
 }
-@keyframes map-pulse {
-  0% { r: 6; opacity: 0.6; }
-  100% { r: 16; opacity: 0; }
+:root[data-theme="dark"] .africa-map .country:hover,
+:root[data-theme="dark"] .africa-map .country:focus-visible,
+:root[data-theme="dark"] .africa-map .country.is-active { fill: var(--color-primary); }
+:root[data-theme="dark"] .africa-map .country.has-tours { fill: var(--color-primary); }
+:root[data-theme="dark"] .africa-map .country.has-tours:hover,
+:root[data-theme="dark"] .africa-map .country.has-tours:focus-visible,
+:root[data-theme="dark"] .africa-map .country.has-tours.is-active { fill: var(--color-accent); }
+
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 12px;
+  font-size: 0.82rem;
+  color: var(--color-ink-faint);
 }
+.map-legend .swatch {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+.swatch-tours { background: var(--color-primary); }
+.swatch-other { background: var(--color-accent-light); border: 1px solid var(--color-ink-faint); }
+:root[data-theme="dark"] .swatch-other { background: #3A2F1D; }
+
+.map-zoom-controls {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 5;
+}
+.map-zoom-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.map-zoom-btn:hover { background: var(--color-accent-light); }
+.map-zoom-btn:active { transform: scale(0.92); }
+
 .map-tooltip {
   position: absolute;
   pointer-events: none;
   background: var(--color-ink-fixed);
   color: #fff;
-  padding: 8px 12px;
+  padding: 10px 14px;
   border-radius: var(--radius-sm);
   font-size: 0.78rem;
-  font-weight: 600;
   white-space: nowrap;
-  transform: translate(-50%, -130%);
+  transform: translate(-50%, -110%);
   opacity: 0;
-  transition: opacity 0.15s ease;
+  transition: opacity 0.12s ease;
   z-index: 10;
 }
 .map-tooltip.show { opacity: 1; }
+.country-tooltip strong {
+  display: block;
+  font-size: 0.88rem;
+  margin-bottom: 4px;
+  color: var(--color-accent-light, #fff);
+}
+.country-tooltip ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+.country-tooltip li { line-height: 1.5; }
+.country-tooltip li::before { content: "• "; opacity: 0.7; }
+.country-tooltip .tooltip-cta {
+  display: block;
+  margin-top: 6px;
+  font-weight: 700;
+  color: var(--color-accent-light, #E8B04B);
+}
 .map-caption {
   text-align: center;
   font-size: 0.78rem;
