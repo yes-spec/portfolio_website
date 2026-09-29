@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 130">
+<defs>
+  <linearGradient id="sh-g2" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#F2965C"/>
+    <stop offset="55%" stop-color="#B7472A"/>
+    <stop offset="100%" stop-color="#6E2A1A"/>
+  </linearGradient>
+</defs>
+<circle cx="65" cy="65" r="60" fill="url(#sh-g2)"/>
+<g stroke="#F1DBA5" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+  <path d="M30 83h70"/>
+  <path d="M46 83a19 19 0 0 1 38 0"/>
+  <path d="M65 62V45"/>
+  <path d="M50 68 37 55"/>
+  <path d="M80 68l13-13"/>
+</g>
+<text x="148" y="70" font-family="Georgia, 'Playfair Display', serif" font-weight="700" font-size="42" fill="#221A12">Safiri Horizons</text>
+<text x="150" y="94" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="13" letter-spacing="2.5" fill="#B7472A">TOURS &amp; HOSPITALITY</text>
+</svg>
